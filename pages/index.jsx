@@ -3,15 +3,17 @@ import Header from "../components/header.jsx";
 import Footer from "../components/footer.jsx";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Container from "../components/container";
-import { useState, useEffect } from 'react'
+import { useState,useRef , useEffect } from 'react'
 import {auth} from "../config"
 import customerSupportImage from "../images/5124556.jpg"
 import Image from 'next/image'
+
 export default function Home() {
 const [providerUser, setProviderUser] = useAuthState(auth);
 const [user, setUser] = useState(null)
-  
-
+const form = useRef();
+const [subject, setSubject] = useState("")
+const [message, setMessage] = useState("")
  return(
     <div>
       <Header ></Header>
@@ -199,8 +201,8 @@ const [user, setUser] = useState(null)
                       </div>
 
                 {/* Form */}
-                                  <div className="rounded p-8 bg-white   shadow-lg grid grid-cols-1 " style={{height:"fit-content"}}>
-                <form action="#" class="space-y-8">
+                                  <div  className="rounded p-8 bg-white   shadow-lg grid grid-cols-1 " style={{height:"fit-content"}}>
+                <div class="space-y-8">
                   <div>
                     <label for="email" class="block mb-2 text-sm font-medium text-black-900 dark:text-black-300">Your email</label>
                     <input type="email" id="email" class="shadow-sm  border border-gray-300 text-black-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5  dark:border-gray-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required />
@@ -212,10 +214,10 @@ const [user, setUser] = useState(null)
                   <div class="sm:col-span-2 ">
                     <label for="message" class="block mb-2 text-sm font-medium text-black-900 dark:text-black-400">Your message</label>
                     <textarea id="message" rows="6" class="shadow-sm  border border-gray-300 text-black-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5  dark:border-gray-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Leave a comment..."></textarea>
-                    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300shadow-sm  border border-gray-300 text-black-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5  dark:border-gray-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light mt-4 py-5">Submit</button>
+                  <a href={`mailto:stutorpal@gmail.com?subject=${subject}&body=${message}`}> <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300shadow-sm  border border-gray-300 text-black-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5  dark:border-gray-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light mt-4 py-5">Submit</button></a> 
                   </div>
 
-                </form>
+                </div>
                                     
                 </div>
 
