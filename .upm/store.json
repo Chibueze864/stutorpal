@@ -1,1 +1,1 @@
-{"version":2,"languages":{"nodejs-npm":{"specfileHash":"1094d4f5862dde9f49cb4ef74ff585e7","lockfileHash":"0d429d13ea7592464d234b3fa5da145b","guessedImports":["next","react"],"guessedImportsHash":"ea87b6d53806d34084de0f61226852fa"}}}
+{"version":2,"languages":{"nodejs-npm":{"specfileHash":"7b817440ec550ca5c0889eae7b50e401","lockfileHash":"ad6f0c4efb428d06694ecdd2b4ceed4b","guessedImports":["next-auth","firebase","react-firebase-hooks","react","next"],"guessedImportsHash":"95e38ec4f5731bcb99bb1bb402b0c3f6"}}}

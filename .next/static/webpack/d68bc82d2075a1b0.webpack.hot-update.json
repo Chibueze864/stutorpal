@@ -1,0 +1,1 @@
+{"c":["webpack"],"r":["pages/article/[...slug]"],"m":["./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=%2Fhome%2Frunner%2FOfficial-Site%2Fpages%2Farticle%2F%5B...slug%5D.jsx&page=%2Farticle%2F%5B...slug%5D!","./pages/article/[...slug].jsx"]}

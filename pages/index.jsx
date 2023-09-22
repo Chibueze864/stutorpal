@@ -1,22 +1,28 @@
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Header from "../components/header.jsx";
 import Footer from "../components/footer.jsx";
-
+import { useAuthState } from "react-firebase-hooks/auth";
 import Container from "../components/container";
-
-
+import { useState, useEffect } from 'react'
+import {auth} from "../config"
+import customerSupportImage from "../images/5124556.jpg"
+import Image from 'next/image'
 export default function Home() {
+const [providerUser, setProviderUser] = useAuthState(auth);
+const [user, setUser] = useState(null)
+  
 
-  return (
+ return(
     <div>
-      <Header></Header>
-
+      <Header ></Header>
+  
       <div>
         <div className="lg:px-20 py-8" style={{ backgroundImage: "url(https://stutorpal.github.io/waitlist/img/banner-4.png)", backgroundSize: "cover" }} >
           <Container className="flex flex-wrap pt-5">
             <div className="flex items-center w-full lg:w-1/2">
               <div className="max-w-2xl  lg:text-left md:text-left sm:text-center px-4  mb-8">
                 <h1 className="text-3xl py-3  font-bold leading-snug tracking-tight  lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight">
-                  Stutorpal
+                  Stutorpal 
                 </h1>
                 <p className="py-3 text-xl leading-normal lg:text-xl xl:text-2xl">
                   When trying to get the best of grades, with us you'll ace the tests you take. The first peer-to-peer tutorship app. For students by students     </p>
@@ -59,8 +65,8 @@ export default function Home() {
                   <div className="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
                   <div className="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
                   <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-                    <img src="https://raw.githubusercontent.com/stutorpal/waitlist/main/img/App-Snapshot.png" className="dark:hidden w-[272px] h-[572px]" alt="" />
-                    <img src="https://raw.githubusercontent.com/stutorpal/waitlist/main/img/App-Snapshot.png" className="hidden dark:block w-[272px] h-[572px]" alt="" />
+                    <img src="https://raw.githubusercontent.com/stutorpal/waitlist/main/img/App-Snapshot.png" className="dark:hidden w-[272px] h-[572px]" alt="App Snapshot" />
+                    <img src="https://raw.githubusercontent.com/stutorpal/waitlist/main/img/App-Snapshot.png" className="hidden dark:block w-[272px] h-[572px]" alt="App Snapshot" />
                   </div>
                 </div>
               </div>
@@ -189,7 +195,7 @@ export default function Home() {
               </div>
               <div className="p-3  w-full grid grid-cols-1 grid-cols-1 lg:grid-cols-2">
                                       <div >
-                          <img src="https://img.freepik.com/free-vector/flat-design-illustration-customer-support_23-2148887720.jpg?w=900&t=st=1694773361~exp=1694773961~hmac=1e460c4742dbb09bd44b787f61e10f992f84f69aa07d125462c7ad971094e1d7" style={{height:"inherit"}} />
+                          <Image src={customerSupportImage} style={{height:"inherit"}} />
                       </div>
 
                 {/* Form */}
