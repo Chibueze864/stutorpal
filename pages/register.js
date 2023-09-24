@@ -5,7 +5,8 @@ import Header from "../components/header.jsx";
 import Footer from "../components/footer.jsx";
 import {useState, useEffect} from "react"
 import { useRouter } from "next/router"
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc } from "firebase/firestore";
+import Link from 'next/link';
 
 
 export default function Register(){
@@ -116,7 +117,7 @@ export default function Register(){
      
  
     
-    <p className="text-center text-gray-600 mt-6">Do you have an account? <a href="/login" className="text-blue-500 hover:underline">Login</a></p>
+    <p className="text-center text-gray-600 mt-6">Do you have an account? <Link href"/login" className="text-blue-500 hover:underline">Login</Link></p>
   </div>
 </div>
 
