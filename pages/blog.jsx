@@ -76,45 +76,45 @@ function findPostsPerLine(){
 
           <div  >
               {blogPost && blogPost.length > 0?  
-                 <div style={{marginTop:"5vh", marginBottom:"30vh"}} class={findPostsPerLine()}>
+                 <div style={{marginTop:"5vh", marginBottom:"30vh"}} className={findPostsPerLine()}>
     {blogPost && blogPost.map((post, index)=>{
   return(
     
-          <div class="rounded overflow-hidden shadow-md" style={{backgroundColor: "#F0F0F0", }}>
+          <div key={index} className="rounded overflow-hidden shadow-md" style={{backgroundColor: "#F0F0F0", }}>
 
             <a href={`article/${index}`}></a>
-            <div class="relative">
+            <div className="relative">
                 <a href={`article/${index}`}>
                    
-                  {post.img?  <img class="w-full h-56 object-contain"
+                  {post.img?  <img className="w-full h-56 object-contain"
                         src={post.img} 
-                        alt="Sunset in the mountains"/> : <img class="h-56 object-contain w-full"
+                        alt="Sunset in the mountains"/> : <img className="h-56 object-contain w-full"
                         src="https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/> }
                     <div
-                        class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
+                        className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
                     </div>
                 </a>
                 <a href={`article/${index}`}>
                     <div
-                        class="absolute bottom-0 left-0 bg-blue-600 px-8 py-4 text-white text-sm hover:bg-white hover:text-blue-600 transition duration-500 ease-in-out">
+                        className="absolute bottom-0 left-0 bg-blue-600 px-8 py-4 text-white text-sm hover:bg-white hover:text-blue-600 transition duration-500 ease-in-out">
                         {post.author}
                     </div>
                 </a>
 
                 <a href={`article/${index}`}>
                     <div
-                        class="text-sm absolute top-0 right-0 bg-blue-600 px-4 text-white rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-blue-600 transition duration-500 ease-in-out">
-                        <span class="font-bold">{post.date.split(" ")[0]}</span>
+                        className="text-sm absolute top-0 right-0 bg-blue-600 px-4 text-white rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-blue-600 transition duration-500 ease-in-out">
+                        <span className="font-bold">{post.date.split(" ")[0]}</span>
                         <small>{post.date.split(" ")[1]}</small>
                         <small>{post.date.split(" ")[2]}</small>
                     </div>
                 </a>
             </div>
-            <div class="px-6 py-8">
+            <div className="px-6 py-8">
 
                 <a href={`article/${index}`}
-                    class="font-semibold text-lg inline-block hover:text-blue-600 transition duration-500 ease-in-out">{post.header}</a>
-                <p class="text-gray-500 text-sm">
+                    className="font-semibold text-lg inline-block hover:text-blue-600 transition duration-500 ease-in-out">{post.header}</a>
+                <p className="text-gray-500 text-sm">
                 </p>
             </div>
         </div>
@@ -122,7 +122,7 @@ function findPostsPerLine(){
     })}
     </div>:  
               <div style={{marginTop:"15vh", marginBottom:"30vh"}}>
-            <h1 class="text-3xl">There are no blog posts. Please wait or come back later</h1> </div> 
+            <h1 className="text-3xl">There are no blog posts. Please wait or come back later</h1> </div> 
    }
        
     </div>
