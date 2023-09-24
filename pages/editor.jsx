@@ -1,7 +1,6 @@
-import { useRef, useMemo , useState, useEffect} from 'react'
-// import JoditEditor from 'jodit-react'
+import { useRef, useMemo , useState, useEffect} from "react"
 
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import Header from "../components/header.jsx";
 import Footer from "../components/footer.jsx";
 import { collection, addDoc } from "firebase/firestore"; 
@@ -10,7 +9,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router"
 
-const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false });
+const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 
 
 
@@ -41,30 +40,30 @@ async function saveBlogPost(){
      try {
        const date = new Date().toUTCString().slice(5, 16);
        
-     let headerContent = content.replace(/<h1>/g, '<h1 class="text-gray-900 pb-4 font-bold text-3xl mb-2">');
+     let headerContent = content.replace(/<h1>/g, '<h1 className="text-gray-900 pb-4 font-bold text-3xl mb-2">');
               setContent(headerContent)
 
-      let paragraphContent = content.replace(/<p>/g, '<p class="text-base leading-8 my-5">');
+      let paragraphContent = content.replace(/<p>/g, '<p className="text-base leading-8 my-5">');
               setContent(paragraphContent)
 
        const imageRegex = /<img\s+src="([^"]+)"[^>]*>/i;
       let  imageContent = content.replace(imageRegex, (match, src) => {
   // Create the desired <div> tag with styles and attributes
-  return `<div class="bg-cover h-64 text-center overflow-hidden" style={{height: "450px", backgroundImage: "url('${src}')"}} title="Blog Content"></div>`;
+  return `<div className="bg-cover h-64 text-center overflow-hidden" style={{height: "450px", backgroundImage: "url('${src}')"}} title="Blog Content"></div>`;
 });
               setContent(imageContent)
 
        const headerRegex = /<h([2-6])>/g;
 
 // Use the regex pattern with replace to modify the HTML
-let smallerHeaderContent = content.replace(headerRegex, '<h$1 class="text-2xl font-bold my-5">');
+let smallerHeaderContent = content.replace(headerRegex, '<h$1 className="text-2xl font-bold my-5">');
               setContent(smallerHeaderContent)
 
 // Define a regex pattern to match blockquote tags
 const blockquoteRegex = /<blockquote>/g;
 
 // Use the regex pattern with replace to modify the HTML
-let blockQuoteContent = content.replace(blockquoteRegex, '<blockquote class="text-md italic leading-8 my-5 p-8 text-indigo-600 font-semibold">');
+let blockQuoteContent = content.replace(blockquoteRegex, '<blockquote className="text-md italic leading-8 my-5 p-8 text-indigo-600 font-semibold">');
               setContent(blockQuoteContent)
 
        console.log(content)
