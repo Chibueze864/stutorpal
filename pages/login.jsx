@@ -5,6 +5,7 @@ import Header from "../components/header.jsx";
 import Footer from "../components/footer.jsx";
 import {useState, useEffect} from "react"
 import { useRouter } from "next/router"
+import Link from 'next/link';
 
 export default function Login(){
     const router = useRouter()
@@ -100,7 +101,7 @@ export default function Login(){
       </div>
  
     
-    <p className="text-center text-gray-600 mt-6">You do not have an account? <a href="/register" className="text-blue-500 hover:underline">Sign up</a></p>
+    <p className="text-center text-gray-600 mt-6">You do not have an account? <Link href="/register" className="text-blue-500 hover:underline">Sign up</Link></p>
   </div>
 </div>
 
