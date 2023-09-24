@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import Link from "next/link";
-import { signOut, useSession } from 'next-auth/react';
 import {auth} from "../config"
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -12,11 +11,7 @@ function NavLink({ to, children }) {
 }
 
 function MobileNav({ open, setOpen }) {
-  const session = useSession({
-    required: true,
-    onUnauthenticated() {
-    },
-  });
+  
   const [marginBottomStyle, setMarginBottom] = useState({})
   useState(()=>{
     if(open){
@@ -30,7 +25,7 @@ function MobileNav({ open, setOpen }) {
     <div className={`absolute top-0 left-0 h-fit-content py-5 w-screen bg-white transform  ${open ? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out filter drop-shadow-md  `}  >
       <div className={`flex items-center justify-center filter drop-shadow-md bg-white h-20`} style={marginBottomStyle} > {/*logo container*/}
         <Link href="/">
-          <a class="navbar-brand"
+          <a className="navbar-brand"
           ><img src="https://stutorpal.github.io/waitlist/img/logo.png" alt="" width="40" height="40"
             /></a>
         </Link>
@@ -87,7 +82,7 @@ useEffect(()=>{
 
       <MobileNav open={open} setOpen={setOpen} />
       <div className="w-3/12 flex items-center">
-        <a class="navbar-brand" href="/"
+        <a className="navbar-brand" href="/"
         ><img src="https://stutorpal.github.io/waitlist/img/logo.png" alt="" width="40" height="40"
           /></a>
       </div>
@@ -121,8 +116,8 @@ useEffect(()=>{
 
           </NavLink>  }
           {user?.email &&  <NavLink>
-              <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-600">
-  <span class="text-xs font-medium text-white leading-none">{user?.email.slice(0, 2).toUpperCase()}</span>
+              <span className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-600">
+  <span className="text-xs font-medium text-white leading-none">{user?.email.slice(0, 2).toUpperCase()}</span>
 </span>
           </NavLink>
        }
